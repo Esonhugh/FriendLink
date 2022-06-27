@@ -1,24 +1,45 @@
 <script>
 	export let name;
+	import CardContainer from "./component/cardContainer.svelte";
+	let cards_data, filter;
+	async function get_site_data() {
+		const res = await fetch('friends.json')
+		const text = await res.json()
+		if (res.ok) {
+			localStorage.setItem("conf", text)
+			cards_data = text
+			return text
+		} else {
+			throw new Error(text)
+		}
+	}
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>{name}</h1>
+	<p>This is the Esonhugh Service Dashboard.</p>
+	<p>Any button of there can jump to service.</p>
+	<hr />
+	{#await get_site_data() }
+		<pre>Loading... datas</pre>
+	{:then text}
+		<CardContainer {cards_data} />
+	{:catch e}
+		<pre>{e}</pre>
+	{/await}
 </main>
 
 <style>
 	main {
 		text-align: center;
 		padding: 1em;
-		max-width: 240px;
+		max-width: 250px;
 		margin: 0 auto;
 	}
 
 	h1 {
 		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
+		font-size: 3em;
 		font-weight: 100;
 	}
 

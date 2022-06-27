@@ -2,8 +2,9 @@
 
 @use '../../node_modules/@material/theme/color-palette';
 
+
 // Svelte Colors!
-@use '../../node_modules/@material/theme/index' as theme with (
+@use '../../dashboard/node_modules/@material/theme/index' as theme with (
   $primary: #ff3e00,
   $secondary: #676778,
   $surface: #fff,
