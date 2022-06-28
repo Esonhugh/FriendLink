@@ -17,8 +17,7 @@
 
 <main>
 	<h1>{name}</h1>
-	<p>This is the Esonhugh Service Dashboard.</p>
-	<p>Any button of there can jump to service.</p>
+	<p>Esonhugh friends Link wall.</p>
 	<hr />
 	{#await get_site_data() }
 		<pre>Loading... datas</pre>
