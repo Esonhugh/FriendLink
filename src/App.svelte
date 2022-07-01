@@ -17,7 +17,7 @@
 
 <main>
 	<h1>{name}</h1>
-	<p>Esonhugh friends Link wall.</p>
+	<p>If you wanna change Link with me. Please Pull Request the <a src="https://github.com/Esonhugh/FriendLink">FriendLink Project</a></p>
 	<hr />
 	{#await get_site_data() }
 		<pre>Loading... datas</pre>
